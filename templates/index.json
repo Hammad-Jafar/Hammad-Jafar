@@ -1,10 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "product_grid": {
       "type": "product-grid-popup",
-      "settings": {
-        "accessory_product_handle": "soft-winter-jacket"
-      }
+      "blocks": {
+        "product_XTgQpy": {
+          "type": "product",
+          "settings": {
+            "product": "dark-denim-top"
+          }
+        },
+        "product_cReGpx": {
+          "type": "product",
+          "settings": {
+            "product": "classic-leather-jacket"
+          }
+        },
+        "product_F3aeL3": {
+          "type": "product",
+          "settings": {
+            "product": "chequered-red-shirt"
+          }
+        },
+        "product_cyfY9D": {
+          "type": "product",
+          "settings": {
+            "product": "classic-varsity-top"
+          }
+        },
+        "product_9jqnWK": {
+          "type": "product",
+          "settings": {
+            "product": "blue-silk-tuxedo"
+          }
+        },
+        "product_pTXEk7": {
+          "type": "product",
+          "settings": {
+            "product": "black-leather-bag"
+          }
+        }
+      },
+      "block_order": [
+        "product_XTgQpy",
+        "product_cReGpx",
+        "product_F3aeL3",
+        "product_cyfY9D",
+        "product_9jqnWK",
+        "product_pTXEk7"
+      ],
+      "settings": {}
     }
   },
   "order": [
