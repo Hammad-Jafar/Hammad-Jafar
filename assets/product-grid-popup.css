@@ -1,0 +1,1006 @@
+/* ============================================================
+   PRODUCT GRID
+   ============================================================ */
+
+.product-grid-section {
+  width: 100%;
+  padding: 50px 20px;
+  background: #ffffff;
+}
+
+.product-grid-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.product-grid-title {
+  margin: 0 0 30px;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   PRODUCT GRID
+   ============================================================ */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.product-card {
+  position: relative;
+  min-width: 0;
+}
+
+
+/* ============================================================
+   PRODUCT IMAGE
+   ============================================================ */
+
+.product-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  background: #eeeeee;
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ============================================================
+   PLUS BUTTON
+   ============================================================ */
+
+.custom-product-open {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #000000;
+  font-size: 22px;
+  line-height: 32px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+
+
+/* ============================================================
+   PLUS POSITIONS
+   DESKTOP - UNCHANGED
+   ============================================================ */
+
+.product-card:nth-child(1) .custom-product-open {
+  top: 50%;
+  left: 65%;
+}
+
+.product-card:nth-child(2) .custom-product-open {
+  top: 50%;
+  left: 90%;
+}
+
+.product-card:nth-child(3) .custom-product-open {
+  top: 25%;
+  left: 70%;
+}
+
+.product-card:nth-child(4) .custom-product-open {
+  top: 20%;
+  left: 85%;
+}
+
+.product-card:nth-child(5) .custom-product-open {
+  top: 30%;
+  left: 50%;
+}
+
+.product-card:nth-child(6) .custom-product-open {
+  top: 45%;
+  left: 80%;
+}
+
+
+/* ============================================================
+   PRODUCT NAME + PRICE
+   ============================================================ */
+
+.product-info {
+  padding-top: 12px;
+}
+
+.product-title {
+  margin: 0;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.product-price {
+  margin: 5px 0 0;
+  color: #555555;
+  font-size: 16px;
+}
+
+
+/* ============================================================
+   NO PRODUCTS
+   ============================================================ */
+
+.no-products {
+  grid-column: 1 / -1;
+  padding: 50px;
+  background: #ffdddd;
+  color: #990000;
+}
+
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+
+.custom-product-modal {
+  position: fixed;
+  inset: 0;
+
+  /*
+    Must be higher than the custom header.
+    Your header uses z-index: 999999.
+  */
+  z-index: 2147483647 !important;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.55);
+}
+
+
+/* ============================================================
+   MODAL CONTAINER
+   ============================================================ */
+
+.custom-product-modal-container {
+  position: relative;
+
+  z-index: 2147483647;
+
+  width: 35%;
+  max-width: 900px;
+  max-height: 85vh;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+}
+
+
+/* ============================================================
+   CLOSE BUTTON
+   ============================================================ */
+
+.custom-product-modal-close {
+  position: absolute;
+
+  top: 12px;
+  right: 12px;
+
+  z-index: 2147483647 !important;
+
+  width: 40px;
+  height: 40px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: #ffffff;
+  color: #000000;
+
+  font-size: 26px;
+  line-height: 40px;
+
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   MODAL MAIN
+   ============================================================ */
+
+.custom-product-modal-main {
+  display: block;
+  padding: 30px;
+}
+
+
+/* ============================================================
+   IMAGE + PRODUCT INFORMATION
+   ============================================================ */
+
+.custom-modal-product-top {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 30px;
+
+  align-items: start;
+
+  width: 100%;
+}
+
+
+/* ============================================================
+   MODAL IMAGE
+   ============================================================ */
+
+.custom-modal-image-wrapper {
+  width: 100%;
+  height: 200px;
+
+  overflow: hidden;
+
+  background: #eeeeee;
+}
+
+.custom-modal-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* ============================================================
+   PRODUCT INFORMATION
+   ============================================================ */
+
+.custom-modal-product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+  padding-top: 5px;
+}
+
+
+/* ============================================================
+   TITLE
+   ============================================================ */
+
+.custom-modal-title {
+  width: 100%;
+
+  margin: 0 0 12px;
+
+  color: #000000;
+
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+
+/* ============================================================
+   PRICE
+   ============================================================ */
+
+.custom-modal-price {
+  width: 100%;
+
+  margin: 0 0 18px;
+
+  color: #000000;
+
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   DESCRIPTION
+   ============================================================ */
+
+.custom-modal-description {
+  width: 100%;
+
+  margin: 0;
+
+  color: #555555;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   COLOR
+   ============================================================ */
+
+.custom-modal-color-wrapper {
+  display: none;
+
+  width: 100%;
+
+  margin-top: 25px;
+  padding: 0;
+}
+
+.custom-modal-color-wrapper h3 {
+  margin: 0 0 8px;
+
+  color: #000000;
+
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   COLOR CONTAINER
+   ============================================================ */
+
+.custom-modal-colors {
+  position: relative;
+
+  display: flex;
+
+  width: 100%;
+
+  margin-top: 5px;
+}
+
+
+/* ============================================================
+   COLOR OPTIONS
+   ============================================================ */
+
+.custom-color-option {
+  position: relative;
+
+  z-index: 1;
+
+  flex: 1;
+
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+
+  padding: 0 14px;
+
+  border: 1px solid #000000;
+
+  background: transparent;
+  color: #000000;
+
+  font-size: 14px;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* ============================================================
+   ACTIVE COLOR
+   ============================================================ */
+
+.custom-color-option.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   COLOR SLIDER
+   ============================================================ */
+
+.custom-color-slider {
+  position: absolute;
+
+  z-index: 0;
+
+  left: 0;
+  top: 0;
+
+  width: 0;
+  height: 42px;
+
+  background: #000000;
+
+  pointer-events: none;
+
+  transition:
+    transform 0.35s ease,
+    width 0.35s ease;
+}
+
+
+/* ============================================================
+   SIZE
+   ============================================================ */
+
+.custom-modal-size-wrapper {
+  display: none;
+
+  width: 100%;
+
+  margin-top: 20px;
+}
+
+.custom-modal-size-wrapper label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #000000;
+
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   SIZE SELECT WRAPPER
+   ============================================================ */
+
+.custom-modal-size-select-wrapper {
+  position: relative;
+
+  width: 100%;
+}
+
+
+/* ============================================================
+   SIZE SELECT
+   ============================================================ */
+
+.custom-modal-size-select {
+  display: block;
+
+  width: 100%;
+  height: 46px;
+
+  padding:
+    0
+    60px
+    0
+    18px;
+
+  border: 1px solid #000000;
+  border-radius: 0;
+
+  background-color: #ffffff;
+  color: #000000;
+
+  font-size: 15px;
+  line-height: 46px;
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+
+/* ============================================================
+   JAVASCRIPT CREATED DROPDOWN ARROW
+   ============================================================ */
+
+.custom-modal-size-arrow {
+  position: absolute;
+
+  top: 50%;
+  right: 18px;
+
+  z-index: 10;
+
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(calc(-50% - 3px));
+
+  color: #000000;
+
+  font-size: 22px;
+  line-height: 18px;
+  font-weight: 400;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+
+/* ============================================================
+   DROPDOWN ARROW DIVIDER
+   ============================================================ */
+
+.custom-modal-size-arrow::before {
+  content: "";
+
+  position: absolute;
+
+  left: -14px;
+  top: -14px;
+
+  width: 1px;
+  height: 46px;
+
+  background: #000000;
+}
+
+
+/* ============================================================
+   SELECT FOCUS
+   ============================================================ */
+
+.custom-modal-size-select:focus {
+  outline: none;
+
+  border-color: #000000;
+}
+
+
+/* ============================================================
+   ADD TO CART
+   ALWAYS BLACK
+   ============================================================ */
+
+.custom-modal-add-to-cart {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  width: 100%;
+  min-height: 48px;
+
+  margin-top: 16px;
+
+  padding: 12px 18px;
+
+  border: 1px solid #000000;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  opacity: 1 !important;
+}
+
+
+/* ============================================================
+   ADD TO CART HOVER
+   STILL BLACK
+   ============================================================ */
+
+.custom-modal-add-to-cart:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  border-color: #000000 !important;
+
+  opacity: 1 !important;
+}
+
+
+/* ============================================================
+   ADD TO CART DISABLED
+   STILL BLACK
+   NO FADE
+   ============================================================ */
+
+.custom-modal-add-to-cart:disabled {
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  border-color: #000000 !important;
+
+  opacity: 1 !important;
+
+  cursor: not-allowed;
+}
+
+
+/* ============================================================
+   ADD TO CART ARROW
+   ============================================================ */
+
+.custom-modal-add-to-cart-arrow {
+  display: inline-block;
+
+  color: #ffffff !important;
+
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+
+/* ============================================================
+   DISABLED ADD TO CART ARROW
+   ============================================================ */
+
+.custom-modal-add-to-cart:disabled
+.custom-modal-add-to-cart-arrow {
+  color: #ffffff !important;
+}
+
+
+/* ============================================================
+   MESSAGE
+   ============================================================ */
+
+.custom-modal-message {
+  display: none;
+
+  width: 100%;
+
+  margin-top: 12px;
+
+  font-size: 14px;
+}
+
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+.custom-product-modal-container {
+  scrollbar-width: thin;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  .custom-product-modal-container {
+    width: 80%;
+    max-width: 700px;
+  }
+
+  .custom-modal-product-top {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+    gap: 20px;
+  }
+
+  .custom-modal-image-wrapper {
+    height: 300px;
+  }
+
+  .custom-modal-title {
+    font-size: 18px;
+  }
+
+  .custom-modal-price {
+    font-size: 16px;
+  }
+
+  .custom-modal-description {
+    font-size: 13px;
+  }
+
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 767px) {
+
+  .product-grid-section {
+    padding: 30px 10px;
+  }
+
+  .product-grid-title {
+    display: none;
+  }
+
+  .product-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 10px;
+  }
+
+  .product-image-wrapper {
+    height: 350px;
+  }
+
+  .product-info {
+    display: none;
+  }
+
+
+  /* ==========================================================
+     MOBILE PLUS BUTTON
+     LOWER RIGHT
+     ========================================================== */
+
+  .product-card:nth-child(n) .custom-product-open {
+    top: auto !important;
+    left: auto !important;
+
+    right: 10px !important;
+    bottom: 10px !important;
+
+    width: 28px;
+    height: 28px;
+
+    padding: 0;
+
+    font-size: 20px;
+    line-height: 28px;
+
+    transform: none !important;
+  }
+
+
+  /* ==========================================================
+     MOBILE MODAL
+     ========================================================== */
+
+  .custom-product-modal {
+    z-index: 2147483647 !important;
+
+    padding: 10px;
+  }
+
+
+  /* ==========================================================
+     MOBILE MODAL CONTAINER
+     ========================================================== */
+
+  .custom-product-modal-container {
+    position: relative;
+
+    z-index: 2147483647;
+
+    width: 100%;
+    max-width: 100%;
+    max-height: 95vh;
+  }
+
+
+  /* ==========================================================
+     MOBILE CLOSE BUTTON
+     ========================================================== */
+
+  .custom-product-modal-close {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    z-index: 2147483647 !important;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+
+    font-size: 26px;
+    line-height: 40px;
+
+    cursor: pointer;
+  }
+
+
+  /* ==========================================================
+     MOBILE MODAL MAIN
+     ========================================================== */
+
+  .custom-product-modal-main {
+    padding: 18px;
+  }
+
+
+  /* ==========================================================
+     MOBILE PRODUCT TOP
+     ========================================================== */
+
+  .custom-modal-product-top {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+
+  /* ==========================================================
+     MOBILE IMAGE
+     ========================================================== */
+
+  .custom-modal-image-wrapper {
+    height: 300px;
+  }
+
+
+  /* ==========================================================
+     MOBILE PRODUCT INFO
+     ========================================================== */
+
+  .custom-modal-product-info {
+    padding-top: 0;
+  }
+
+
+  /* ==========================================================
+     MOBILE TITLE
+     ========================================================== */
+
+  .custom-modal-title {
+    font-size: 18px;
+
+    margin-bottom: 8px;
+  }
+
+  .custom-modal-message.success {
+color: #008000;
+display: block;
+font-weight: 600;
+margin-top: 10px;
+}
+
+.custom-modal-message.error {
+color: #d00000;
+display: block;
+font-weight: 600;
+margin-top: 10px;
+}
+
+
+
+  /* ==========================================================
+     MOBILE PRICE
+     ========================================================== */
+
+  .custom-modal-price {
+    font-size: 16px;
+
+    margin-bottom: 12px;
+  }
+
+
+  /* ==========================================================
+     MOBILE DESCRIPTION
+     ========================================================== */
+
+  .custom-modal-description {
+    font-size: 13px;
+  }
+
+
+  /* ==========================================================
+     MOBILE COLOR
+     ========================================================== */
+
+  .custom-modal-color-wrapper {
+    margin-top: 20px;
+  }
+
+  .custom-modal-colors {
+    width: 100%;
+  }
+
+  .custom-color-option {
+    flex: 1;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 0 8px;
+
+    font-size: 12px;
+  }
+
+
+  /* ==========================================================
+     MOBILE SIZE
+     ========================================================== */
+
+  .custom-modal-size-select {
+    height: 46px;
+
+    padding-left: 14px;
+    padding-right: 55px;
+
+    line-height: 46px;
+  }
+
+
+  /* ==========================================================
+     MOBILE SIZE ARROW
+     ========================================================== */
+
+  .custom-modal-size-arrow {
+    right: 0;
+
+    width: 46px;
+    height: 46px;
+
+    transform: translateY(calc(-50% - 10px));
+  }
+
+  .custom-modal-size-arrow::before {
+    left: 0;
+    top: 0;
+
+    height: 46px;
+  }
+
+
+  /* ==========================================================
+     MOBILE ADD TO CART
+     ALWAYS BLACK
+     ========================================================== */
+
+  .custom-modal-add-to-cart,
+  .custom-modal-add-to-cart:hover,
+  .custom-modal-add-to-cart:focus,
+  .custom-modal-add-to-cart:active,
+  .custom-modal-add-to-cart:disabled {
+    background: #000000 !important;
+    color: #ffffff !important;
+
+    border-color: #000000 !important;
+
+    opacity: 1 !important;
+  }
+
+  .custom-modal-add-to-cart-arrow {
+    color: #ffffff !important;
+  }
+
+}

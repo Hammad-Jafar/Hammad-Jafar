@@ -7,7 +7,9 @@
   media="print"
   onload="this.media='all'"
 >
-
+  <div class="bg-black text-white p-6 text-3xl font-bold text-center">
+    Tailwind is working 🎉
+  </div>
 {%- if settings.predictive_search_enabled -%}
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
@@ -17,87 +19,87 @@
 {%- endif -%}
 
 <style>
-  header-drawer {
-    justify-self: start;
-    margin-left: -1.2rem;
-  }
-
-  {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
-    .scrolled-past-header .header__heading-logo-wrapper {
-      width: 75%;
+    header-drawer {
+      justify-self: start;
+      margin-left: -1.2rem;
     }
-  {%- endif -%}
 
-  {%- if section.settings.menu_type_desktop != "drawer" -%}
-    @media screen and (min-width: 990px) {
-      header-drawer {
-        display: none;
+    {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
+      .scrolled-past-header .header__heading-logo-wrapper {
+        width: 75%;
+      }
+    {%- endif -%}
+
+    {%- if section.settings.menu_type_desktop != "drawer" -%}
+      @media screen and (min-width: 990px) {
+        header-drawer {
+          display: none;
+        }
+      }
+    {%- endif -%}
+
+    .menu-drawer-container {
+      display: flex;
+    }
+
+    .list-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .list-menu--inline {
+      display: inline-flex;
+      flex-wrap: wrap;
+    }
+
+    summary.list-menu__item {
+      padding-right: 2.7rem;
+    }
+
+    .list-menu__item {
+      display: flex;
+      align-items: center;
+      line-height: calc(1 + 0.3 / var(--font-body-scale));
+    }
+
+    .list-menu__item--link {
+      text-decoration: none;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+      line-height: calc(1 + 0.8 / var(--font-body-scale));
+    }
+
+    @media screen and (min-width: 750px) {
+      .list-menu__item--link {
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
       }
     }
-  {%- endif -%}
 
-  .menu-drawer-container {
-    display: flex;
-  }
-
-  .list-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .list-menu--inline {
-    display: inline-flex;
-    flex-wrap: wrap;
-  }
-
-  summary.list-menu__item {
-    padding-right: 2.7rem;
-  }
-
-  .list-menu__item {
-    display: flex;
-    align-items: center;
-    line-height: calc(1 + 0.3 / var(--font-body-scale));
-  }
-
-  .list-menu__item--link {
-    text-decoration: none;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    line-height: calc(1 + 0.8 / var(--font-body-scale));
-  }
-
-  @media screen and (min-width: 750px) {
-    .list-menu__item--link {
-      padding-bottom: 0.5rem;
-      padding-top: 0.5rem;
+    shopify-account.header__icon {
+      --shopify-account-font-heading: var(--font-heading-family);
+      --shopify-account-font-heading-weight: var(--font-heading-weight);
+      --shopify-account-font-body: var(--font-body-family);
+      --shopify-account-font-body-weight: var(--font-body-weight);
+      --shopify-account-radius-base: var(--popup-corner-radius);
+      --shopify-account-radius-button: var(--buttons-radius);
+      --shopify-account-radius-button-small: var(--buttons-radius);
+      --shopify-account-radius-input: var(--inputs-radius);
+      --shopify-account-color-background: rgb(var(--color-background));
+      --shopify-account-color-text: rgb(var(--color-foreground));
+      --shopify-account-color-accent: rgb(var(--color-button));
+      --shopify-account-color-accent-text: rgb(var(--color-button-text));
+      --shopify-account-dialog-position-top: var(--account-dialog-top, var(--header-height, 0px));
     }
-  }
 
-  shopify-account.header__icon {
-    --shopify-account-font-heading: var(--font-heading-family);
-    --shopify-account-font-heading-weight: var(--font-heading-weight);
-    --shopify-account-font-body: var(--font-body-family);
-    --shopify-account-font-body-weight: var(--font-body-weight);
-    --shopify-account-radius-base: var(--popup-corner-radius);
-    --shopify-account-radius-button: var(--buttons-radius);
-    --shopify-account-radius-button-small: var(--buttons-radius);
-    --shopify-account-radius-input: var(--inputs-radius);
-    --shopify-account-color-background: rgb(var(--color-background));
-    --shopify-account-color-text: rgb(var(--color-foreground));
-    --shopify-account-color-accent: rgb(var(--color-button));
-    --shopify-account-color-accent-text: rgb(var(--color-button-text));
-    --shopify-account-dialog-position-top: var(--account-dialog-top, var(--header-height, 0px));
-  }
-
-  shopify-account.header__icon:not(:defined) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 4.4rem;
-    height: 4.4rem;
-  }
+    shopify-account.header__icon:not(:defined) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 4.4rem;
+      height: 4.4rem;
+    }
 </style>
 
 {%- style -%}

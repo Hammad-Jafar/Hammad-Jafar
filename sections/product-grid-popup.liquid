@@ -1,0 +1,269 @@
+{{ 'product-grid-popup.css' | asset_url | stylesheet_tag }}
+
+{% comment %}
+PRODUCT GRID + PRODUCT MODAL
+
+Features:
+
+* Exactly 6 product blocks
+* Each product is selectable from the Shopify customizer
+* JavaScript is handled entirely by product-grid-popup.js
+  {% endcomment %}
+
+<section
+  id="product-grid-{{ section.id }}"
+  class="product-grid-section"
+>
+  <div class="product-grid-container">
+
+
+<h2 class="product-grid-title">
+  Tisso Vission in the wild
+</h2>
+
+<div class="product-grid">
+
+  {% for block in section.blocks %}
+
+    {% assign product = block.settings.product %}
+
+    <div
+      class="product-card"
+      {{ block.shopify_attributes }}
+    >
+
+      {% if product != blank and product.featured_image %}
+
+        <div class="product-image-wrapper">
+
+          <img
+            src="{{ product.featured_image | image_url: width: 1000 }}"
+            alt="{{ product.title | escape }}"
+            class="product-image"
+            loading="lazy"
+          />
+
+          <button
+            type="button"
+            class="custom-product-open"
+            data-product-handle="{{ product.handle }}"
+            aria-label="View {{ product.title | escape }}"
+          >
+            +
+          </button>
+
+        </div>
+
+      {% else %}
+
+        <div class="product-image-wrapper product-image-placeholder">
+
+          <span>
+            Select a product
+          </span>
+
+        </div>
+
+      {% endif %}
+
+    </div>
+
+  {% endfor %}
+
+</div>
+
+
+  </div>
+</section>
+
+<!-- =========================================================
+     PRODUCT MODAL
+     ========================================================= -->
+
+<div
+  class="custom-product-modal"
+  aria-hidden="true"
+  id="modal-{{ section.id }}"
+>
+
+  <div
+    class="custom-product-modal-container"
+    role="dialog"
+    aria-modal="true"
+  >
+
+
+<button
+  type="button"
+  class="custom-product-modal-close"
+  aria-label="Close product"
+>
+  ×
+</button>
+
+
+<div class="custom-product-modal-main">
+
+  <!-- PRODUCT INFORMATION -->
+
+  <div class="custom-modal-product-top">
+
+    <div class="custom-modal-image-wrapper">
+
+      <img
+        class="custom-modal-image"
+        src=""
+        alt=""
+      />
+
+    </div>
+
+
+    <div class="custom-modal-product-info">
+
+      <h2 class="custom-modal-title"></h2>
+
+      <div class="custom-modal-price"></div>
+
+      <div class="custom-modal-description"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- COLOR -->
+
+  <div
+    class="custom-modal-color-wrapper"
+    style="display:none;"
+  >
+
+    <h3>
+      Color
+    </h3>
+
+    <div class="custom-modal-colors"></div>
+
+  </div>
+
+
+  <!-- SIZE -->
+
+  <div
+    class="custom-modal-size-wrapper"
+    style="display:none;"
+  >
+
+    <label
+      for="custom-modal-size-select-{{ section.id }}"
+    >
+      Size
+    </label>
+
+    <div class="custom-modal-size-select-wrapper">
+
+      <select
+        id="custom-modal-size-select-{{ section.id }}"
+        class="custom-modal-size-select"
+      >
+
+        <option value="">
+          Select Size
+        </option>
+
+      </select>
+
+    </div>
+
+  </div>
+
+
+  <!-- ADD TO CART -->
+
+  <button
+    type="button"
+    class="custom-modal-add-to-cart"
+    data-selected-variant=""
+    disabled
+  >
+
+    <span class="custom-modal-add-to-cart-arrow">
+      →
+    </span>
+
+    <span>
+      Add to Cart
+    </span>
+
+  </button>
+
+
+  <!-- MESSAGE -->
+
+  <div class="custom-modal-message"></div>
+
+</div>
+
+
+  </div>
+
+</div>
+
+{% schema %}
+
+{
+"name": "Product Grid Popup",
+
+"max_blocks": 6,
+
+"blocks": [
+{
+"type": "product",
+"name": "Product",
+
+
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Select Product"
+    }
+  ]
+}
+
+
+],
+
+"presets": [
+{
+"name": "Product Grid Popup",
+
+
+  "blocks": [
+    {
+      "type": "product"
+    },
+    {
+      "type": "product"
+    },
+    {
+      "type": "product"
+    },
+    {
+      "type": "product"
+    },
+    {
+      "type": "product"
+    },
+    {
+      "type": "product"
+    }
+  ]
+}
+
+
+]
+}
+
+{% endschema %}

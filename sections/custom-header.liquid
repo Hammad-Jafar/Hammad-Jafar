@@ -1,0 +1,198 @@
+{{ 'custom-header.css' | asset_url | stylesheet_tag }}
+
+<header
+  class="custom-header"
+  style="
+    --custom-header-bg: {{ section.settings.header_background_color }};
+    --custom-header-logo-color: {{ section.settings.logo_color }};
+    --custom-header-logo-size: {{ section.settings.logo_font_size }}px;
+    --custom-header-center-color: {{ section.settings.center_text_color }};
+    --custom-header-center-size: {{ section.settings.center_font_size }}px;
+    --custom-header-button-bg: {{ section.settings.button_background_color }};
+    --custom-header-button-text-color: {{ section.settings.button_text_color }};
+    --custom-header-button-size: {{ section.settings.button_font_size }}px;
+    --custom-header-mobile-logo-size: {{ section.settings.mobile_logo_font_size }}px;
+  "
+>
+  <div class="custom-header-container">
+
+
+<button
+  type="button"
+  class="custom-header-menu"
+  aria-label="Open menu"
+>
+  <i class="fa-solid fa-bars custom-header-bars" aria-hidden="true"></i>
+</button>
+
+<div class="custom-header-left">
+  <h1 class="custom-header-title">
+    {{ section.settings.custom_header_text }}
+  </h1>
+</div>
+
+<div class="custom-header-middle">
+  <p class="custom-header-subtitle">
+    {{ section.settings.custom_header_text_2 }}
+  </p>
+</div>
+
+<div class="custom-header-right">
+  <a
+    href="/collections/all"
+    class="custom-header-button"
+  >
+    <span class="custom-header-button-hover"></span>
+
+    <span class="custom-header-button-text">
+      {{ section.settings.custom_header_text_3 }}
+    </span>
+
+    <span class="custom-header-button-arrow">
+      →
+    </span>
+  </a>
+</div>
+
+
+  </div>
+</header>
+
+{% schema %}
+
+{
+"name": "Custom Header",
+"settings": [
+
+
+{
+  "type": "header",
+  "content": "Header"
+},
+
+{
+  "type": "color",
+  "id": "header_background_color",
+  "label": "Header Background Color",
+  "default": "#f3f4f6"
+},
+
+{
+  "type": "header",
+  "content": "Logo"
+},
+
+{
+  "type": "text",
+  "id": "custom_header_text",
+  "label": "Logo Text",
+  "default": "Tisso Vision"
+},
+
+{
+  "type": "color",
+  "id": "logo_color",
+  "label": "Logo Color",
+  "default": "#000000"
+},
+
+{
+  "type": "range",
+  "id": "logo_font_size",
+  "label": "Logo Font Size",
+  "min": 12,
+  "max": 80,
+  "step": 1,
+  "unit": "px",
+  "default": 48
+},
+
+{
+  "type": "range",
+  "id": "mobile_logo_font_size",
+  "label": "Mobile Logo Font Size",
+  "min": 12,
+  "max": 50,
+  "step": 1,
+  "unit": "px",
+  "default": 24
+},
+
+{
+  "type": "header",
+  "content": "Center Text"
+},
+
+{
+  "type": "text",
+  "id": "custom_header_text_2",
+  "label": "Center Text",
+  "default": "Find the ideal gift for your loved ones"
+},
+
+{
+  "type": "color",
+  "id": "center_text_color",
+  "label": "Center Text Color",
+  "default": "#000000"
+},
+
+{
+  "type": "range",
+  "id": "center_font_size",
+  "label": "Center Text Font Size",
+  "min": 10,
+  "max": 50,
+  "step": 1,
+  "unit": "px",
+  "default": 36
+},
+
+{
+  "type": "header",
+  "content": "Button"
+},
+
+{
+  "type": "text",
+  "id": "custom_header_text_3",
+  "label": "Button Text",
+  "default": "Choose Gift"
+},
+
+{
+  "type": "color",
+  "id": "button_background_color",
+  "label": "Button Background Color",
+  "default": "#f7dd20"
+},
+
+{
+  "type": "color",
+  "id": "button_text_color",
+  "label": "Button Text Color",
+  "default": "#000000"
+},
+
+{
+  "type": "range",
+  "id": "button_font_size",
+  "label": "Button Font Size",
+  "min": 10,
+  "max": 30,
+  "step": 1,
+  "unit": "px",
+  "default": 18
+}
+
+
+],
+
+"presets": [
+{
+"name": "Custom Header"
+}
+]
+}
+
+{% endschema %}

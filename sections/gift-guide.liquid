@@ -1,0 +1,349 @@
+{{ 'gift-guide.css' | asset_url | stylesheet_tag }}
+{{ 'gift-guide-button.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .gift-guide-section {
+    --gift-heading-color: {{ section.settings.heading_color }};
+    --gift-heading-size: {{ section.settings.heading_font_size }}px;
+
+    --gift-description-color: {{ section.settings.description_color }};
+    --gift-description-size: {{ section.settings.description_font_size }}px;
+
+    --gift-button-color: {{ section.settings.button_color }};
+    --gift-button-size: {{ section.settings.button_font_size }}px;
+
+    --gift-sustainability-color: {{ section.settings.sustainability_color }};
+    --gift-sustainability-size: {{ section.settings.sustainability_font_size }}px;
+
+    --gift-product-title-color: {{ section.settings.product_title_color }};
+    --gift-product-title-size: {{ section.settings.product_title_font_size }}px;
+
+    --gift-product-price-color: {{ section.settings.product_price_color }};
+    --gift-product-price-size: {{ section.settings.product_price_font_size }}px;
+  }
+
+  .gift-guide-heading {
+    color: var(--gift-heading-color);
+    font-size: var(--gift-heading-size);
+  }
+
+  .gift-guide-description {
+    color: var(--gift-description-color);
+    font-size: var(--gift-description-size);
+  }
+
+  .gift-guide-product-title {
+    color: var(--gift-product-title-color);
+    font-size: var(--gift-product-title-size);
+  }
+
+  .gift-guide-product-price {
+    color: var(--gift-product-price-color);
+    font-size: var(--gift-product-price-size);
+  }
+
+  .gift-guide-sustainability {
+    color: var(--gift-sustainability-color);
+    font-size: var(--gift-sustainability-size);
+  }
+
+  .gift-guide-button-wrapper {
+    --gift-button-color: {{ section.settings.button_color }};
+    --gift-button-size: {{ section.settings.button_font_size }}px;
+  }
+</style>
+
+<section class="gift-guide-section"> 
+
+<div class="gift-guide-container"> 
+
+<div class="gift-guide-top-image gift-guide-desktop-only"> 
+<img 
+src="{{ 'Main Image.jpg' | asset_url }}" 
+alt="Gift Guide" 
+loading="lazy" 
+/> 
+</div> 
+
+<div class="gift-guide-lower-section"> 
+
+<div class="gift-guide-text"> 
+
+<h2 class="gift-guide-heading"> 
+{{ section.settings.heading }} 
+</h2> 
+
+<div class="gift-guide-description"> 
+<span class="gift-guide-mobile-desc"> 
+Discover Joy: Your Ultimate Holiday Gift Destination. 
+</span> 
+
+<span class="gift-guide-desktop-desc"> 
+{{ section.settings.description }} 
+</span> 
+</div> 
+
+<div class="gift-guide-button-wrapper gift-guide-desktop-only"> 
+{% render 'gift-guide-button', 
+text: section.settings.button_text, 
+link: section.settings.button_link 
+%} 
+</div> 
+
+</div> 
+
+<div class="gift-guide-right-image"> 
+
+<div class="gift-guide-image-wrapper"> 
+
+<img
+src="{{ 'Main Image.jpg' | asset_url }}"
+alt="Gift Guide"
+loading="lazy"
+
+/>
+
+<div class="gift-guide-button-wrapper gift-guide-mobile-only"> 
+{% render 'gift-guide-button', 
+text: section.settings.button_text, 
+link: section.settings.button_link 
+%} 
+</div> 
+
+</div> 
+
+</div> 
+
+</div> 
+
+<div class="gift-guide-product-grid"> 
+
+{% for block in section.blocks %}
+
+{% if block.type == 'product_block' %}
+
+{% assign product_item = block.settings.selected_product %}
+
+<div 
+class="gift-guide-product-card" 
+{{ block.shopify_attributes }} 
+> 
+
+{% if product_item != blank %}
+
+<a
+href="{{ product_item.url }}"
+class="gift-guide-product-link"
+
+>
+
+<div class="gift-guide-product-image"> 
+
+{% if product_item.featured_image != blank %}
+
+<img
+src="{{ product_item.featured_image | image_url: width: 600 }}"
+alt="{{ product_item.title | escape }}"
+loading="lazy"
+width="{{ product_item.featured_image.width }}"
+height="{{ product_item.featured_image.height }}"
+
+>
+
+{% endif %}
+
+</div> 
+
+<div class="gift-guide-product-info"> 
+
+<h3 class="gift-guide-product-title"> 
+{{ product_item.title }} 
+</h3> 
+
+<p class="gift-guide-product-price"> 
+{{ product_item.price | money }} 
+</p> 
+
+</div> 
+
+</a> 
+
+{% else %}
+
+<div class="gift-guide-product-placeholder"> 
+
+<div class="gift-guide-product-image-placeholder"> 
+{{ 'product-1' | placeholder_svg_tag }} 
+</div> 
+
+<div class="gift-guide-product-info"> 
+
+<h3 class="gift-guide-product-title"> 
+Select a Product 
+</h3> 
+
+<p class="gift-guide-product-price"> 
+Choose a product from the Theme Editor 
+</p> 
+
+</div> 
+
+</div> 
+
+{% endif %}
+
+</div> 
+
+{% endif %}
+
+{% endfor %}
+
+</div> 
+
+<div class="gift-guide-sustainability"> 
+{% render 'sustainability-widget', text: section.settings.sustainability_text %} 
+</div> 
+
+</div> 
+
+</section> 
+
+{% schema %}
+
+{
+"name": "Gift Guide",
+"tag": "section",
+"class": "gift-guide-section-wrapper",
+"max_blocks": 6,
+
+"blocks": [
+{
+"type": "product_block",
+"name": "Product Card",
+"settings": [
+{
+"type": "product",
+"id": "selected_product",
+"label": "Select Product"
+}
+]
+}
+],
+
+"settings": [
+{
+"type": "text",
+"id": "heading",
+"label": "Heading",
+"default": "The Gift Guide"
+},
+{
+"type": "color",
+"id": "heading_color",
+"label": "Heading Color",
+"default": "#000000"
+},
+{
+"type": "range",
+"id": "heading_font_size",
+"label": "Heading Font Size",
+"min": 12,
+"max": 80,
+"step": 1,
+"unit": "px",
+"default": 36
+},
+{
+"type": "textarea",
+"id": "description",
+"label": "Description",
+"default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+},
+{
+"type": "color",
+"id": "description_color",
+"label": "Description Color",
+"default": "#000000"
+},
+{
+"type": "range",
+"id": "description_font_size",
+"label": "Description Font Size",
+"min": 10,
+"max": 40,
+"step": 1,
+"unit": "px",
+"default": 16
+},
+{
+"type": "text",
+"id": "button_text",
+"label": "Button Text",
+"default": "Shop Now"
+},
+{
+"type": "color",
+"id": "button_color",
+"label": "Button Text Color",
+"default": "#f8f5f5"
+},
+{
+"type": "range",
+"id": "button_font_size",
+"label": "Button Font Size",
+"min": 10,
+"max": 40,
+"step": 1,
+"unit": "px",
+"default": 16
+},
+{
+"type": "text",
+"id": "sustainability_text",
+"label": "Sustainability Text",
+"default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+},
+{
+"type": "color",
+"id": "sustainability_color",
+"label": "Sustainability Text Color",
+"default": "#000000"
+},
+{
+"type": "range",
+"id": "sustainability_font_size",
+"label": "Sustainability Font Size",
+"min": 8,
+"max": 40,
+"step": 1,
+"unit": "px",
+"default": 12
+}
+],
+
+"presets": [
+{
+"name": "Gift Guide",
+"blocks": [
+{
+"type": "product_block"
+},
+{
+"type": "product_block"
+},
+{
+"type": "product_block"
+},
+{
+"type": "product_block"
+},
+{
+"type": "product_block"
+}
+]
+}
+]
+
+}
+
+{% endschema %}

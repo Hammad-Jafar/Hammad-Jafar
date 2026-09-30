@@ -1,0 +1,26 @@
+{
+  "name": "theme_export__hammad-jafar-48-teststore-myshopify-com-dawn__23sep2026-1235pm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx @tailwindcss/cli -i ./src/tailwind.css -o ./assets/tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hammad-Jafar/Hammad-Jafar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Hammad-Jafar/Hammad-Jafar/issues"
+  },
+  "homepage": "https://github.com/Hammad-Jafar/Hammad-Jafar#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}

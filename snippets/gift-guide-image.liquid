@@ -1,0 +1,34 @@
+# {% comment %}
+
+# GIFT GUIDE IMAGE SNIPPET
+
+Parameters:
+
+* image
+* width
+* sizes
+* class
+  {% endcomment %}
+
+{% if image != blank %}
+
+{{
+image
+| image_url: width: width
+| image_tag:
+loading: 'lazy',
+widths: '600, 900, 1200, 1600, 2000, 2400',
+sizes: sizes,
+class: 'gift-guide-image ' | append: class
+}}
+
+{% endif %}
+
+<style>
+  .gift-guide-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+</style>

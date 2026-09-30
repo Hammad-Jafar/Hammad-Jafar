@@ -1,0 +1,136 @@
+{% comment %}
+  Product JSON
+
+  Converts Shopify product data into JSON that JavaScript can consume.
+
+  JavaScript does not need to understand Liquid.
+  Liquid prepares the data here.
+{% endcomment %}
+
+
+<script
+  type="application/json"
+  id="product-data-{{ section_id }}"
+>
+
+[
+  {% assign product_count = 0 %}
+
+  {% for block in blocks %}
+
+    {% assign product = block.settings.product %}
+
+    {% if product != blank %}
+
+      {% if product_count > 0 %},{% endif %}
+
+      {
+        "id": {{ product.id | json }},
+
+        "title": {{ product.title | json }},
+
+        "description": {{ product.description | strip_html | json }},
+
+        "image": {{ product.featured_image | image_url: width: 1200 | json }},
+
+        "price": {{ product.price | money | json }},
+
+        "options": [
+
+          {% for option in product.options_with_values %}
+
+            {
+              "name": {{ option.name | json }},
+
+              "values": {{ option.values | json }}
+            }
+
+            {% unless forloop.last %},{% endunless %}
+
+          {% endfor %}
+
+        ],
+
+        "variants": [
+
+          {% for variant in product.variants %}
+
+            {
+              "id": {{ variant.id | json }},
+
+              "available": {{ variant.available | json }},
+
+              "price": {{ variant.price | money | json }},
+
+              "options": {{ variant.options | json }}
+            }
+
+            {% unless forloop.last %},{% endunless %}
+
+          {% endfor %}
+
+        ]
+
+      }
+
+      {% assign product_count = product_count | plus: 1 %}
+
+    {% endif %}
+
+  {% endfor %}
+
+]
+
+</script>
+
+
+{% comment %}
+  Automatic accessory product.
+
+  The handle must be:
+  soft-winter-jacket
+{% endcomment %}
+
+
+{% assign soft_winter_jacket = all_products['soft-winter-jacket'] %}
+
+
+<script
+  type="application/json"
+  id="automatic-product-data-{{ section_id }}"
+>
+
+{% if soft_winter_jacket != blank %}
+
+  {
+    "id": {{ soft_winter_jacket.id | json }},
+
+    "title": {{ soft_winter_jacket.title | json }},
+
+    "variants": [
+
+      {% for variant in soft_winter_jacket.variants %}
+
+        {
+          "id": {{ variant.id | json }},
+
+          "available": {{ variant.available | json }},
+
+          "options": {{ variant.options | json }}
+        }
+
+        {% unless forloop.last %},{% endunless %}
+
+      {% endfor %}
+
+    ]
+
+  }
+
+{% else %}
+
+  null
+
+{% endif %}
+
+</script>

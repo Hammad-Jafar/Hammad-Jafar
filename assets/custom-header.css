@@ -1,0 +1,314 @@
+/* ============================================================
+CUSTOM HEADER
+============================================================ */
+
+.custom-header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 999999;
+background-color: var(--custom-header-bg);
+}
+
+.custom-header-container {
+width: 100%;
+min-height: 5rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-sizing: border-box;
+}
+
+/* ============================================================
+LOGO
+============================================================ */
+
+.custom-header-left {
+flex: 1;
+}
+
+.custom-header-title {
+margin: 0;
+padding: 0;
+color: var(--custom-header-logo-color);
+font-size: var(--custom-header-logo-size);
+line-height: 1;
+font-weight: 700;
+}
+
+/* ============================================================
+CENTER TEXT
+============================================================ */
+
+.custom-header-middle {
+flex: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.custom-header-subtitle {
+margin: 0;
+padding: 0;
+color: var(--custom-header-center-color);
+font-size: var(--custom-header-center-size);
+line-height: 1.2;
+}
+
+/* ============================================================
+RIGHT
+============================================================ */
+
+.custom-header-right {
+flex: 1;
+display: flex;
+align-items: center;
+justify-content: flex-end;
+}
+
+/* ============================================================
+CHOOSE GIFT BUTTON
+============================================================ */
+
+.custom-header-button {
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+min-width: 10rem;
+padding: 1rem 1.5rem;
+background-color: var(--custom-header-button-bg);
+color: var(--custom-header-button-text-color);
+text-decoration: none;
+font-size: var(--custom-header-button-size);
+font-weight: 600;
+overflow: hidden;
+box-sizing: border-box;
+}
+
+.custom-header-button-hover {
+position: absolute;
+top: 0;
+left: 0;
+width: 0;
+height: 100%;
+background-color: #000000;
+transition: width 0.3s ease;
+z-index: 0;
+}
+
+.custom-header-button-text,
+.custom-header-button-arrow {
+position: relative;
+z-index: 2;
+}
+
+.custom-header-button-arrow {
+font-size: 1.5rem;
+line-height: 1;
+transition: transform 0.3s ease;
+}
+
+.custom-header-button:hover {
+color: #ffffff;
+}
+
+.custom-header-button:hover .custom-header-button-hover {
+width: 100%;
+}
+
+.custom-header-button:hover .custom-header-button-arrow {
+transform: translateX(4px);
+}
+
+/* ============================================================
+HAMBURGER - DESKTOP HIDDEN
+============================================================ */
+
+.custom-header-menu {
+display: none;
+}
+
+/* ============================================================
+MOBILE
+============================================================ */
+
+@media screen and (max-width: 767px) {
+
+.custom-header {
+position: fixed !important;
+top: 0 !important;
+left: 0 !important;
+width: 100% !important;
+height: 70px !important;
+background-color: var(--custom-header-bg) !important;
+z-index: 2147483647 !important;
+overflow: visible !important;
+}
+
+.custom-header-container {
+position: relative !important;
+width: 100% !important;
+height: 70px !important;
+min-height: 70px !important;
+display: block !important;
+margin: 0 !important;
+padding: 0 !important;
+box-sizing: border-box !important;
+overflow: visible !important;
+}
+
+/* ==========================================================
+HAMBURGER
+========================================================== */
+
+.custom-header-menu {
+position: fixed !important;
+top: 17px !important;
+left: 18px !important;
+width: 36px !important;
+height: 36px !important;
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+margin: 0 !important;
+padding: 0 !important;
+border: 0 !important;
+outline: 0 !important;
+background: transparent !important;
+z-index: 2147483647 !important;
+visibility: visible !important;
+opacity: 1 !important;
+cursor: pointer !important;
+appearance: none !important;
+-webkit-appearance: none !important;
+box-shadow: none !important;
+}
+
+.custom-header-menu::before {
+content: "" !important;
+position: absolute !important;
+top: 9px !important;
+left: 5px !important;
+width: 26px !important;
+height: 3px !important;
+background: #000000 !important;
+box-shadow:
+0 8px 0 #000000,
+0 16px 0 #000000 !important;
+z-index: 2 !important;
+}
+
+.custom-header-bars {
+display: none !important;
+}
+
+/* ==========================================================
+CENTER LOGO
+========================================================== */
+
+.custom-header-left {
+position: absolute !important;
+top: 50% !important;
+left: 50% !important;
+transform: translate(-50%, -50%) !important;
+width: max-content !important;
+max-width: none !important;
+display: block !important;
+margin: 0 !important;
+padding: 0 !important;
+z-index: 10 !important;
+}
+
+.custom-header-title {
+display: block !important;
+width: max-content !important;
+margin: 0 !important;
+padding: 0 !important;
+color: var(--custom-header-logo-color) !important;
+font-size: var(--custom-header-mobile-logo-size) !important;
+line-height: 1 !important;
+font-weight: 700 !important;
+text-align: center !important;
+white-space: nowrap !important;
+}
+
+/* ==========================================================
+HIDE DESKTOP ELEMENTS
+========================================================== */
+
+.custom-header-middle {
+display: none !important;
+}
+
+.custom-header-right {
+display: none !important;
+}
+}
+
+/* ============================================================
+DESKTOP 768px+
+============================================================ */
+
+@media screen and (min-width: 768px) {
+
+.custom-header-container {
+min-height: 5rem;
+padding: 1rem;
+}
+
+.custom-header-left {
+display: flex;
+align-items: center;
+justify-content: flex-start;
+}
+
+.custom-header-middle {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.custom-header-right {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+}
+
+.custom-header-menu {
+display: none !important;
+}
+}
+
+/* ============================================================
+DESKTOP 1024px+
+============================================================ */
+
+@media screen and (min-width: 1024px) {
+
+.custom-header-container {
+padding: 1rem;
+}
+
+.custom-header-button {
+min-width: 11rem;
+padding: 1rem 1.75rem;
+}
+}
+
+/* ============================================================
+SMALL MOBILE
+============================================================ */
+
+@media screen and (max-width: 400px) {
+
+.custom-header-menu {
+left: 14px !important;
+}
+
+.custom-header-title {
+font-size: var(--custom-header-mobile-logo-size) !important;
+}
+}

@@ -1,0 +1,28 @@
+<section class="hero-image">
+  <img
+    src="{{ 'Main Screen Image.jpg' | asset_url }}"
+    alt="Main image"
+    class="hero-image-img"
+    width="1920"
+    height="800"
+  >
+</section>
+
+<style>
+  .hero-image {
+    width: 100%;
+  }
+
+  .hero-image-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+{% schema %}
+{
+"name": "Hero Image",
+"settings": []
+}
+{% endschema %}

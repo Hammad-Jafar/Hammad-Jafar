@@ -1,0 +1,14 @@
+
+@import "tailwindcss";
+
+/*
+  ============================================================
+  SHOPIFY LIQUID FILES
+  ============================================================
+*/
+
+@source "../sections";
+@source "../snippets";
+@source "../templates";
+@source "../layout";
+
